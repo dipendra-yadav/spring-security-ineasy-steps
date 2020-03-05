@@ -2,10 +2,6 @@ package com.demo.config;
 
 import org.springframework.web.servlet.support.*;
 
-/**
- * @author ankidaemon
- *
- */
 public class WebAppIntializer extends AbstractAnnotationConfigDispatcherServletInitializer{
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
