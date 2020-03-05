@@ -5,7 +5,7 @@
 </head>
 <body>
 <p> Lets get you started, Please Login</p>
-    <c:url value="/login" var="loginUrl"/>
+    <c:url value="/login" var="loginUrl"/> <!--  Here I am leveraging the controller provided by spring security (Implicit controller)-->
     <form:form name="form" action="${loginUrl}" method="post">
            
             <c:if test="${param.error != null}">

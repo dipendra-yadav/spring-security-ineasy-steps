@@ -51,7 +51,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     	 * Section 2 - Video 2.4 - form login*/
     	http   		
     		.formLogin()
-    			.loginPage("/login") 
+    			.loginPage("/login") //customized Login Page
     			.permitAll();       
     	
     }

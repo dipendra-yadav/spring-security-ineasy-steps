@@ -41,11 +41,11 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 		configurer.enable();
 	}
 	
-	/*
-	 * Section 2 - Video 2.4 - Added to customize login page*/
+	
+	//register the controller provided by spring
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addViewController("/login").setViewName("login");
-		registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
+		registry.setOrder(Ordered.HIGHEST_PRECEDENCE);//as soon as the Dispatcher servlet Loads this controller gets loaded.
 	}
 }
