@@ -74,12 +74,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				
 		http.formLogin().loginPage("/login").permitAll();
 		
-		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
-			.maximumSessions(1).expiredUrl("/login")
-			.and().invalidSessionUrl("/login") // If specified, logout().delete-cookies("JSESSIONID") should be specified.
-			.sessionFixation().changeSessionId();
 		
-		http.logout().deleteCookies("JSESSIONID").invalidateHttpSession(true);
+		//session -management in spring security
+		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+			.maximumSessions(1).expiredUrl("/login")//for concurrency control
+			.and().invalidSessionUrl("/login") // If specified, logout().delete-cookies("JSESSIONID") should be specified.
+			.sessionFixation().changeSessionId();//sessionFixation strategy-default
+		
+		http.logout().deleteCookies("JSESSIONID").invalidateHttpSession(true); //make sure to delete cookies while logout.
 	}
 		
 }

@@ -22,7 +22,7 @@ public class HomeController {
 	UserDao ud;
 	
 	@Autowired
-	UserTo userTo;
+	UserTo userTo; //session scoped bean
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView visitHome() {
