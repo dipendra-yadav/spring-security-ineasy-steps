@@ -10,10 +10,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
-/**
- * @author ankidaemon
- *
- */
 @Configuration
 @EnableWebSecurity
 @ComponentScan(basePackages = "com.demo.config")
@@ -24,7 +20,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication().withUser("ankidaemon").password("password").roles("USER").and().withUser("test")
+		auth.inMemoryAuthentication().withUser("deependra").password("password").roles("USER").and().withUser("test")
 				.password("test").roles("USER");
 		
 		auth.jdbcAuthentication().dataSource(dataSource)
