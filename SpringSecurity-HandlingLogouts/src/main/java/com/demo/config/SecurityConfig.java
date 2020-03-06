@@ -32,8 +32,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication().withUser("deependra").password("password").roles("CHIEF")
-		.and().withUser("test").password("test").roles("USER");
+		auth.
+		    inMemoryAuthentication().withUser("deependra").password("password").roles("CHIEF")
+		    .and().withUser("test").password("test").roles("USER");
 	}
 
 	@Override
@@ -49,14 +50,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.formLogin().loginPage("/login").permitAll();
 		
 		http.exceptionHandling().accessDeniedPage("/accessDenied");
-		
+		/* simple Logout */
 		//http.logout();
 		
+		/*customized Logout */
 		http
 		.logout()                                             
 			.logoutUrl("/customlogout")                                           
 			.logoutSuccessUrl("/")                              
-			.logoutSuccessHandler(new CustomLogoutSuccessHandler())                              
+			.logoutSuccessHandler(new CustomLogoutSuccessHandler())      //refer-customized logOut Handler                        
 			.invalidateHttpSession(true) //true by default                              
 			.addLogoutHandler(new SecurityContextLogoutHandler())                                      
 			.deleteCookies("JSESSIONID");    
